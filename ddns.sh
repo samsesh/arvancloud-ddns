@@ -38,12 +38,12 @@ domain_id=$(echo $data |  jq '.data[] | select(.type=="a")   |  select(.name=="'
 
 ### get system's current IP
 if [ "$IP" == "" ]; then
-	response=$(curl -s -o /dev/null -w ''%{http_code}'' https://ipinfo.io/ip);
+	response=$(curl -s -o /dev/null -w ''%{http_code}'' icanhazip.com);
 	if [ "${response}" != "200" ]; then
-		response=$(curl -s https://wtfismyip.com/text)
+		response=$(curl -s https://api.ipify.org/?format=text)
 		IP=$response
 	else
-		response=$(curl -s  https://ipinfo.io/ip)
+		response=$(curl -s  https://ip.seeip.org)
 		IP=$response
 	fi
 fi
