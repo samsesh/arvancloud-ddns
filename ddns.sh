@@ -40,7 +40,7 @@ domain_id=$(echo $data |  jq '.data[] | select(.type=="a")   |  select(.name=="'
 if [ "$IP" == "" ]; then
 	response=$(curl -s -o /dev/null -w ''%{http_code}'' icanhazip.com);
 	if [ "${response}" != "200" ]; then
-		response=$(curl -s https://api.ipify.org/?format=text)
+		response=$(curl -s https://ident.me)
 		IP=$response
 	else
 		response=$(curl -s  https://ip.seeip.org)

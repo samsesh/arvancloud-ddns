@@ -1,6 +1,6 @@
 PUBLIC_IP_FINDER_SERVICES = (
     'https://icanhazip.com/',
-    'https://api.ipify.org/?format=text',
+    'https://ident.me',
     'https://ip.seeip.org/'
 )
 
