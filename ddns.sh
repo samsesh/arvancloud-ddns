@@ -29,7 +29,7 @@ fi
 
 ### get current IP From Arvancloud DNS
 data=$(curl -s -L -X GET \
-   "https://napi.arvancloud.com/cdn/4.0/domains/$root_domain/dns-records" \
+   "https://napi.arvancloud.ir/cdn/4.0/domains/$root_domain/dns-records" \
    -H "Content-Type: application/json" \
    -H "Accept: application/json" \
    -H "Authorization: ${TOKEN}")
@@ -53,13 +53,13 @@ if  [ "${current_IP}" == "${response}" ] ; then
 	echo "No action Needed"
 else
     if [ "${domain_id}" != "" ]; then
-	    PutNewIP=$(curl -s -L -X PUT "https://napi.arvancloud.com/cdn/4.0/domains/$root_domain/dns-records/$domain_id" \
+	    PutNewIP=$(curl -s -L -X PUT "https://napi.arvancloud.ir/cdn/4.0/domains/$root_domain/dns-records/$domain_id" \
        -H "Content-Type: application/json" \
        -H "Accept: application/json" \
        -H "Authorization: ${TOKEN}" \
        -d "{ \"name\": \"$subdomain\", \"type\": \"a\", \"value\": [{\"ip\": \"$IP\"}]}")
    else
-       PutNewIP=$(curl -s -L -X POST "https://napi.arvancloud.com/cdn/4.0/domains/$root_domain/dns-records/" \
+       PutNewIP=$(curl -s -L -X POST "https://napi.arvancloud.ir/cdn/4.0/domains/$root_domain/dns-records/" \
        -H "Content-Type: application/json" \
        -H "Accept: application/json" \
        -H "Authorization: ${TOKEN}" \
